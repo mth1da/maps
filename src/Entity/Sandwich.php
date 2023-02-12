@@ -27,9 +27,6 @@ class Sandwich
     #[ORM\ManyToMany(targetEntity: Ingredient::class)]
     protected Collection $sandwich_ingredients;
 
-    #[ORM\Column]
-    private ?float $price = null;
-
     public function __construct()
     {
         $this->sandwich_ingredients = new ArrayCollection();
@@ -76,21 +73,5 @@ class Sandwich
         return $this;
     }
 
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-}
-
-class SandwichMoment extends Sandwich{
-    #[ORM\Column(type: Types::TEXT)]
-    private string $description;
 }
 
