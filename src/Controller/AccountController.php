@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Repository\PublicationRepository;
+use App\Repository\UserRepository;
+
 use App\Form\EditPassType;
 use App\Form\EditProfileType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -47,5 +51,27 @@ class AccountController extends AbstractController
             'editForm' => $editForm->createView(),
         ]);
     }
+
+    #[Route('/account', name: 'app_account')]
+    public function showUserPublications(UserRepository $UserRepository)
+    {
+        $userId = $this->getPubliUser().getId();
+        $publiUser = $this->getPublications();
+
+        $publications = $this->getDoctrine()
+            ->getRepository(PublicationRepository::class)
+            ->findBy(['user' => $userId]);
+
+        return $this->render('account/index.html.twig', [
+            'publications' => $publications,
+        ]);
+    }
+
+
+
+
+
+
+
 
 }

@@ -1,0 +1,17 @@
+<fieldset class="mb-3">
+    <legend>Mes Publications</legend>
+
+    <ul>
+        {% for publication in publications %}
+            <li>{{ publication.title }}</li>
+        {% endfor %}
+    </ul>
+
+
+    <button class="btn btn-lg btn-primary my-3" type="submit">
+        Modifier <i class="fa-duotone fa-file-pen"></i>
+    </button>
+    <button class="btn btn-lg btn-primary my-3" type="reset">
+        Effacer <i class="fa-thin fa-delete-left"></i>
+    </button>
+</fieldset>
