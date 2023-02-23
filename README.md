@@ -50,6 +50,6 @@ npm install
 npm run build
 ```
 
-![protocole](mapsdigramme.PNG)
+![protocole](mapsdiagramme.PNG)
 
 You're now free to enjoy our MAPS website!
